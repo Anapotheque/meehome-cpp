@@ -1,0 +1,42 @@
+# Project: ARENA
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = mingw32-g++.exe
+CC   = mingw32-gcc.exe
+WINDRES = windres.exe
+RES  = ARENA_private.res
+OBJ  = main.o font.o spacejet.o graphique.o $(RES)
+LINKOBJ  = main.o font.o spacejet.o graphique.o $(RES)
+LIBS =  -L"lib" -mwindows -lmingw32  -lSDLmain  -lSDL  -lSDL_gfx  -lSDL_image   
+INCS =  -I"include" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+BIN  = ARENA.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ARENA.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "ARENA.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+font.o: font.cpp
+	$(CPP) -c font.cpp -o font.o $(CXXFLAGS)
+
+spacejet.o: spacejet.cpp
+	$(CPP) -c spacejet.cpp -o spacejet.o $(CXXFLAGS)
+
+graphique.o: graphique.cpp
+	$(CPP) -c graphique.cpp -o graphique.o $(CXXFLAGS)
+
+ARENA_private.res: ARENA_private.rc 
+	$(WINDRES) -i ARENA_private.rc --input-format=rc -o ARENA_private.res -O coff 

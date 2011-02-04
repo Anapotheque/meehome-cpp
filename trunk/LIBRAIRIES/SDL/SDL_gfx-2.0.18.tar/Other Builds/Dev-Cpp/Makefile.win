@@ -1,0 +1,43 @@
+# Project: Project2
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = mingw32-g++.exe
+CC   = mingw32-gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = SDL_framerate.o SDL_gfxPrimitives.o SDL_imageFilter.o SDL_rotozoom.o $(RES)
+LINKOBJ  = SDL_framerate.o SDL_gfxPrimitives.o SDL_imageFilter.o SDL_rotozoom.o $(RES)
+LIBS =  -L"lib" --no-export-all-symbols --add-stdcall-alias -lSDL  
+INCS =  -I"include" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+BIN  = SDL_gfx.dll
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS) -DBUILDING_DLL=1 -DBUILD_DLL=1 -DWIN32  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before SDL_gfx.dll all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+DLLWRAP=dllwrap.exe
+DEFFILE=libSDL_gfx.def
+STATICLIB=libSDL_gfx.a
+
+$(BIN): $(LINKOBJ)
+	$(DLLWRAP) --output-def $(DEFFILE) --driver-name c++ --implib $(STATICLIB) $(LINKOBJ) $(LIBS) -o $(BIN)
+
+SDL_framerate.o: SDL_framerate.c
+	$(CC) -c SDL_framerate.c -o SDL_framerate.o $(CFLAGS)
+
+SDL_gfxPrimitives.o: SDL_gfxPrimitives.c
+	$(CC) -c SDL_gfxPrimitives.c -o SDL_gfxPrimitives.o $(CFLAGS)
+
+SDL_imageFilter.o: SDL_imageFilter.c
+	$(CC) -c SDL_imageFilter.c -o SDL_imageFilter.o $(CFLAGS)
+
+SDL_rotozoom.o: SDL_rotozoom.c
+	$(CC) -c SDL_rotozoom.c -o SDL_rotozoom.o $(CFLAGS)

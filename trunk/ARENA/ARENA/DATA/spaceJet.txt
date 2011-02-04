@@ -1,0 +1,2 @@
+IMG/spaceJet.bmp
+IMG/soldat.png
