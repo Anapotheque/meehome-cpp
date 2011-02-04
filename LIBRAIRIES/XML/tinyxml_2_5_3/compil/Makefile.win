@@ -1,0 +1,43 @@
+# Project: Projet1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = mingw32-g++.exe
+CC   = mingw32-gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = xmltest.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o $(RES)
+LINKOBJ  = xmltest.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o $(RES)
+LIBS =  -L"lib"  
+INCS =  -I"include" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+BIN  = Projet1.a
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Projet1.a all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+xmltest.o: xmltest.cpp
+	$(CPP) -c xmltest.cpp -o xmltest.o $(CXXFLAGS)
+
+tinystr.o: tinystr.cpp
+	$(CPP) -c tinystr.cpp -o tinystr.o $(CXXFLAGS)
+
+tinyxml.o: tinyxml.cpp
+	$(CPP) -c tinyxml.cpp -o tinyxml.o $(CXXFLAGS)
+
+tinyxmlerror.o: tinyxmlerror.cpp
+	$(CPP) -c tinyxmlerror.cpp -o tinyxmlerror.o $(CXXFLAGS)
+
+tinyxmlparser.o: tinyxmlparser.cpp
+	$(CPP) -c tinyxmlparser.cpp -o tinyxmlparser.o $(CXXFLAGS)

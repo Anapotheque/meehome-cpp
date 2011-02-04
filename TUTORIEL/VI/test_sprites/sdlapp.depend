@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1145916637 c:\documents and settings\perruchon\mes documents\tmp\test_sprites\main.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	<string>
+

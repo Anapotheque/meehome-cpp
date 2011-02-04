@@ -1,0 +1,45 @@
+# Project: SPACE_INVADERS
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = mingw32-g++.exe
+CC   = mingw32-gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o enemy.o missile.o tank.o font.o lazer.o $(RES)
+LINKOBJ  = main.o enemy.o missile.o tank.o font.o lazer.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lmingw32 -lSDLmain -lSDL  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = SPACE_INVADERS.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before SPACE_INVADERS.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "SPACE_INVADERS.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+enemy.o: enemy.cpp
+	$(CPP) -c enemy.cpp -o enemy.o $(CXXFLAGS)
+
+missile.o: missile.cpp
+	$(CPP) -c missile.cpp -o missile.o $(CXXFLAGS)
+
+tank.o: tank.cpp
+	$(CPP) -c tank.cpp -o tank.o $(CXXFLAGS)
+
+font.o: font.cpp
+	$(CPP) -c font.cpp -o font.o $(CXXFLAGS)
+
+lazer.o: lazer.cpp
+	$(CPP) -c lazer.cpp -o lazer.o $(CXXFLAGS)

@@ -1,0 +1,3 @@
+IMG/feuille.bmp
+IMG/tronc.bmp
+IMG/sol.bmp
