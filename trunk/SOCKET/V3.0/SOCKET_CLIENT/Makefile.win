@@ -1,15 +1,15 @@
 # Project: SOCKET_CLIENT
 # Makefile created by Dev-C++ 4.9.9.2
 
-CPP  = mingw32-g++.exe -D__DEBUG__
-CC   = mingw32-gcc.exe -D__DEBUG__
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
 WINDRES = windres.exe
 RES  = 
 OBJ  = main.o Client.o $(RES)
 LINKOBJ  = main.o Client.o $(RES)
-LIBS =  -L"lib" -lws2_32  -g3 
-INCS =  -I"include" 
-CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+LIBS =  -L"D:/My/Divers/Dev-Cpp/lib" -lws2_32  -g3 
+INCS =  -I"D:/My/Divers/Dev-Cpp/include" 
+CXXINCS =  -I"D:/My/Divers/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/My/Divers/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/My/Divers/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/My/Divers/Dev-Cpp/include/c++/3.4.2"  -I"D:/My/Divers/Dev-Cpp/include" 
 BIN  = CLIENT.exe
 CXXFLAGS = $(CXXINCS)   -g3
 CFLAGS = $(INCS)   -g3
