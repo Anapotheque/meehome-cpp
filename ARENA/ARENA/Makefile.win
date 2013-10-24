@@ -1,15 +1,15 @@
 # Project: ARENA
 # Makefile created by Dev-C++ 4.9.9.2
 
-CPP  = mingw32-g++.exe
-CC   = mingw32-gcc.exe
+CPP  = g++.exe
+CC   = gcc.exe
 WINDRES = windres.exe
 RES  = ARENA_private.res
 OBJ  = main.o font.o spacejet.o graphique.o $(RES)
 LINKOBJ  = main.o font.o spacejet.o graphique.o $(RES)
-LIBS =  -L"lib" -mwindows -lmingw32  -lSDLmain  -lSDL  -lSDL_gfx  -lSDL_image   
-INCS =  -I"include" 
-CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+LIBS =  -L"D:/My/Divers/Dev-Cpp/lib" -mwindows -lmingw32  -lSDLmain  -lSDL  -lSDL_gfx  -lSDL_image   
+INCS =  -I"D:/My/Divers/Dev-Cpp/include" 
+CXXINCS =  -I"D:/My/Divers/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/My/Divers/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/My/Divers/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/My/Divers/Dev-Cpp/include/c++/3.4.2"  -I"D:/My/Divers/Dev-Cpp/include" 
 BIN  = ARENA.exe
 CXXFLAGS = $(CXXINCS)  
 CFLAGS = $(INCS)  
