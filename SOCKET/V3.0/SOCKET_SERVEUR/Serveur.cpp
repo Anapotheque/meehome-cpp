@@ -18,7 +18,7 @@ int Serveur::init(){
     // Message en Vert
     color(2,0); 
     cout << "-----------------------------------------------" 	<< endl;
-    cout << "    Initialisation de la socket Serveur..." 		<< endl;
+    cout << "    Initialisation de la socket Serveur        "	<< endl;
     cout << "-----------------------------------------------" 	<< endl;
     
     WSADATA wsaData;                          
@@ -35,15 +35,14 @@ int Serveur::init(){
     ServerAddr.sin_port           = htons(port); 
     
     cout << "    Port     : " << port << endl;
-    cout << "    Initialisation de la socket Serveur...OK" << endl;
-    cout << "-----------------------------------------------" << endl;
+    cout << "    Initialisation de la socket Serveur...OK"     << endl;
+    cout << "-----------------------------------------------"  << endl;
     return 0;
 }
 
 // Demarrage du serveur
 int Serveur::start(){    
-    system("CLS");
-    cout << "-----------------------------------------------" << endl;
+    
     cout << "    Demarrage du serveur..." << endl;
     
    	SOCKADDR_IN                 ClientAddr;
@@ -78,7 +77,6 @@ int Serveur::start(){
     cout << "    Socket d'ecoute : " 							<< ListeningSocket << endl;
     cout << "    Demarrage du serveur...OK" 					<< endl;
     cout << "-----------------------------------------------" 	<< endl;
-    system("CLS");
 
 	while(1){
 		if((NewConnection=accept(ListeningSocket,(SOCKADDR *)&ClientAddr,&ClientAddrLen))==INVALID_SOCKET){
